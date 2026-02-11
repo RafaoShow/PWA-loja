@@ -4,196 +4,27 @@
   <meta charset="UTF-8">
   <title>Costa Azul Lifestyle</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-    }
-    <nav style="background:#111; padding:10px; text-align:center;">
-  <a href="index.html" style="color:white; margin:10px;">Início</a>
-  <a href="produtos.html" style="color:white; margin:10px;">Produtos</a>
-  <a href="ofertas.html" style="color:white; margin:10px;">Ofertas</a>
-  <a href="cadastro.html" style="color:white; margin:10px;">Cadastro</a>
-</nav>
-    header {
-      background: #1f7a3f;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    main {
-      padding: 20px;
-    }
-
-    .produto {
-      background: white;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 6px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    button {
-      padding: 6px 10px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .add {
-      background: #1f7a3f;
-      color: white;
-    }
-
-    .limpar {
-      background: #e74c3c;
-      color: white;
-      width: 100%;
-      margin-top: 10px;
-    }
-
-    .finalizar {
-      background: #25D366;
-      color: white;
-      width: 100%;
-      margin-top: 10px;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .total {
-      font-weight: bold;
-      margin-top: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+
+<nav>
+  <a href="index.html">Início</a>
+  <a href="produtos.html">Produtos</a>
+  <a href="ofertas.html">Ofertas</a>
+  <a href="cadastro.html">Cadastro</a>
+</nav>
 
 <header>
   <h1>Costa Azul Lifestyle</h1>
-  <p>Peça fácil pelo WhatsApp</p>
+  <p>Sua loja completa no bairro Costa Azul</p>
 </header>
 
-<main>
+<section class="banner">
+  <h2>🔥 Promoção da Semana</h2>
+  <p>Fones Bluetooth com até 30% OFF</p>
+</section>
 
-  <h2>Produtos</h2>
-  <div id="listaProdutos"></div>
-
-  <h2>Carrinho</h2>
-  <ul id="listaCarrinho"></ul>
-
-  <p class="total">Total: R$ <span id="total">0</span></p>
-
-  <button class="limpar" onclick="esvaziarCarrinho()">Esvaziar Carrinho</button>
-  <button class="finalizar" onclick="finalizarPedido()">Finalizar no WhatsApp</button>
-
-</main>
-
-<script>
-
-const produtos = [
-
-  { nome: "Película iPhone 15 Pro Max", preco: 40 },
-  { nome: "Película iPhone 15 Pro", preco: 35 },
-  { nome: "Capinha iPhone 15 Pro Max", preco: 45 },
-  { nome: "Capinha iPhone 15 Pro", preco: 40 },
-
-  { nome: "Película Galaxy S24 Ultra", preco: 35 },
-  { nome: "Película Galaxy S24", preco: 30 },
-  { nome: "Capinha Galaxy S24 Ultra", preco: 40 },
-  { nome: "Capinha Galaxy S24", preco: 35 },
-
-  { nome: "Película Moto G84", preco: 25 },
-  { nome: "Película Edge 40", preco: 30 },
-  { nome: "Capinha Moto G84", preco: 30 },
-  { nome: "Capinha Edge 40", preco: 35 },
-
-  { nome: "Película Redmi Note 13", preco: 25 },
-  { nome: "Película Redmi 13C", preco: 20 },
-  { nome: "Capinha Redmi Note 13", preco: 30 },
-  { nome: "Capinha Redmi 13C", preco: 25 },
-
-  { nome: "Carregador Turbo USB-C 25W", preco: 50 },
-  { nome: "Carregador Turbo USB-C 33W", preco: 60 },
-  { nome: "Cabo USB-C Reforçado", preco: 25 },
-  { nome: "Cabo Lightning Reforçado", preco: 30 },
-
-  { nome: "Fone com fio P2", preco: 20 },
-  { nome: "Fone Bluetooth TWS", preco: 80 },
-  { nome: "Fone Bluetooth Premium", preco: 120 }
-
-];
-
-let carrinho = [];
-
-function renderizarProdutos() {
-  const lista = document.getElementById("listaProdutos");
-  lista.innerHTML = "";
-
-  produtos.forEach((produto, index) => {
-    lista.innerHTML += `
-      <div class="produto">
-        <span>${produto.nome} - R$ ${produto.preco}</span>
-        <button class="add" onclick="adicionarProduto(${index})">+</button>
-      </div>
-    `;
-  });
-}
-
-function adicionarProduto(index) {
-  carrinho.push(produtos[index]);
-  atualizarCarrinho();
-}
-
-function atualizarCarrinho() {
-  const lista = document.getElementById("listaCarrinho");
-  const totalSpan = document.getElementById("total");
-
-  lista.innerHTML = "";
-  let total = 0;
-
-  carrinho.forEach(item => {
-    lista.innerHTML += `<li>${item.nome} - R$ ${item.preco}</li>`;
-    total += item.preco;
-  });
-
-  totalSpan.innerText = total;
-}
-
-function esvaziarCarrinho() {
-  carrinho = [];
-  atualizarCarrinho();
-}
-
-function finalizarPedido() {
-  if (carrinho.length === 0) {
-    alert("Carrinho vazio!");
-    return;
-  }
-
-  let mensagem = "Olá, gostaria de pedir:%0A";
-  carrinho.forEach(item => {
-    mensagem += `- ${item.nome} (R$ ${item.preco})%0A`;
-  });
-
-  mensagem += `%0ATotal: R$ ${document.getElementById("total").innerText}`;
-
-  const numero = "5511932874198"; // seu número com DDI
-  window.open(`https://wa.me/${numero}?text=${mensagem}`);
-}
-
-renderizarProdutos();
-
-</script>
-
+<script src="app.js"></script>
 </body>
 </html>
