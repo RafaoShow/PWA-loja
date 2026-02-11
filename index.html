@@ -20,17 +20,44 @@
   <main>
     <h2>Produtos</h2>
 
-    <div class="produto">
-      <span>Coca-Cola 2L</span>
-      <strong>R$ 12</strong>
-      <button onclick="adicionarProduto('Coca-Cola 2L', 12)">+</button>
-    </div>
+    const produtos = [
 
-    <div class="produto">
-      <span>Pão Francês (6)</span>
-      <strong>R$ 6</strong>
-      <button onclick="adicionarProduto('Pão Francês (6)', 6)">+</button>
-    </div>
+  // 📱 IPHONE (lançamentos primeiro)
+  { nome: "Película iPhone 15 Pro Max", preco: 40 },
+  { nome: "Película iPhone 15 Pro", preco: 35 },
+  { nome: "Capinha iPhone 15 Pro Max", preco: 45 },
+  { nome: "Capinha iPhone 15 Pro", preco: 40 },
+
+  // 📱 SAMSUNG
+  { nome: "Película Galaxy S24 Ultra", preco: 35 },
+  { nome: "Película Galaxy S24", preco: 30 },
+  { nome: "Capinha Galaxy S24 Ultra", preco: 40 },
+  { nome: "Capinha Galaxy S24", preco: 35 },
+
+  // 📱 MOTOROLA
+  { nome: "Película Moto G84", preco: 25 },
+  { nome: "Película Edge 40", preco: 30 },
+  { nome: "Capinha Moto G84", preco: 30 },
+  { nome: "Capinha Edge 40", preco: 35 },
+
+  // 📱 XIAOMI
+  { nome: "Película Redmi Note 13", preco: 25 },
+  { nome: "Película Redmi 13C", preco: 20 },
+  { nome: "Capinha Redmi Note 13", preco: 30 },
+  { nome: "Capinha Redmi 13C", preco: 25 },
+
+  // 🔌 CARREGADORES
+  { nome: "Carregador Turbo USB-C 25W", preco: 50 },
+  { nome: "Carregador Turbo USB-C 33W", preco: 60 },
+  { nome: "Cabo USB-C Reforçado", preco: 25 },
+  { nome: "Cabo Lightning Reforçado", preco: 30 },
+
+  // 🎧 FONES
+  { nome: "Fone com fio P2", preco: 20 },
+  { nome: "Fone Bluetooth TWS", preco: 80 },
+  { nome: "Fone Bluetooth Premium", preco: 120 }
+
+];
 
     <h2>Carrinho</h2>
     <ul id="listaCarrinho"></ul>
