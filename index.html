@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Loja do Bairro</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <header>
+    <h1>🛒 Loja do Bairro</h1>
+    <p>Peça fácil pelo WhatsApp</p>
+  </header>
+
+  <main>
+    <h2>Produtos</h2>
+
+    <div class="produto">
+      <span>Coca-Cola 2L</span>
+      <strong>R$ 12</strong>
+      <button onclick="adicionarProduto('Coca-Cola 2L', 12)">+</button>
+    </div>
+
+    <div class="produto">
+      <span>Pão Francês (6)</span>
+      <strong>R$ 6</strong>
+      <button onclick="adicionarProduto('Pão Francês (6)', 6)">+</button>
+    </div>
+
+    <h2>Carrinho</h2>
+    <ul id="listaCarrinho"></ul>
+
+    <p class="total">Total: R$ <span id="total">0</span></p>
+
+    <button class="finalizar" onclick="finalizarPedido()">
+      Finalizar no WhatsApp
+    </button>
+  </main>
+
+  <script src="app.js"></script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+
+</body>
+</html>
