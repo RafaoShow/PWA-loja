@@ -52,3 +52,11 @@ ul {
   font-size: 18px;
   border-radius: 8px;
 }
+.limpar {
+  background-color: #e74c3c;
+  margin-top: 10px;
+}
+
+.limpar:hover {
+  background-color: #c0392b;
+}
