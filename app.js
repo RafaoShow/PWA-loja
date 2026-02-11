@@ -43,3 +43,7 @@ function finalizarPedido() {
 
   window.open(url, "_blank");
 }
+function esvaziarCarrinho() {
+  carrinho = [];
+  atualizarCarrinho();
+}
