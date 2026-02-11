@@ -1,49 +1,48 @@
 let carrinho = [];
+let total = 0;
 
-function adicionarProduto(nome, preco) {
+function adicionarAoCarrinho(nome, preco) {
   carrinho.push({ nome, preco });
+  total += preco;
   atualizarCarrinho();
 }
 
 function atualizarCarrinho() {
-  const lista = document.getElementById("listaCarrinho");
-  const totalSpan = document.getElementById("total");
+  const lista = document.getElementById("carrinho");
+  const totalElemento = document.getElementById("total");
+
+  if (!lista) return;
 
   lista.innerHTML = "";
 
-  let total = 0;
-
-  carrinho.forEach(item => {
+  carrinho.forEach(produto => {
     const li = document.createElement("li");
-    li.textContent = `${item.nome} - R$ ${item.preco}`;
+    li.textContent = `${produto.nome} - R$ ${produto.preco}`;
     lista.appendChild(li);
-    total += item.preco;
   });
 
-  totalSpan.textContent = total.toFixed(2);
+  totalElemento.textContent = total;
 }
 
-function finalizarPedido() {
-  if (carrinho.length === 0) {
-    alert("Seu carrinho está vazio 😅");
-    return;
-  }
-
-  let mensagem = "🛒 *Novo Pedido*\n\n";
-
-  carrinho.forEach(item => {
-    mensagem += `• ${item.nome} - R$ ${item.preco}\n`;
-  });
-
-  const total = carrinho.reduce((s, i) => s + i.preco, 0);
-  mensagem += `\n💰 Total: R$ ${total}`;
-
-  const telefone = "5511932874198"; // TROCA PELO SEU
-  const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
-
-  window.open(url, "_blank");
-}
 function esvaziarCarrinho() {
   carrinho = [];
+  total = 0;
   atualizarCarrinho();
+}
+
+if (document.getElementById("lista-produtos")) {
+  fetch("produtos.json")
+    .then(res => res.json())
+    .then(produtos => {
+      const container = document.getElementById("lista-produtos");
+      produtos.forEach(prod => {
+        const div = document.createElement("div");
+        div.classList.add("produto");
+        div.innerHTML = `
+          <span>${prod.nome} - R$ ${prod.preco}</span>
+          <button onclick="adicionarAoCarrinho('${prod.nome}', ${prod.preco})">+</button>
+        `;
+        container.appendChild(div);
+      });
+    });
 }
