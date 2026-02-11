@@ -1,66 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Ofertas - Costa Azul Lifestyle</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f4f4;
-    }
-    <nav style="background:#111; padding:10px; text-align:center;">
-  <a href="index.html" style="color:white; margin:10px;">Início</a>
-  <a href="produtos.html" style="color:white; margin:10px;">Produtos</a>
-  <a href="ofertas.html" style="color:white; margin:10px;">Ofertas</a>
-  <a href="cadastro.html" style="color:white; margin:10px;">Cadastro</a>
-</nav>
-
-    nav {
-      background: #111;
-      padding: 10px;
-      text-align: center;
-    }
-
-    nav a {
-      color: white;
-      margin: 10px;
-      text-decoration: none;
-    }
-
-    header {
-      background: #1f7a3f;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    main {
-      padding: 20px;
-    }
-
-    .produto {
-      background: white;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 6px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .add {
-      background: #1f7a3f;
-      color: white;
-      border: none;
-      padding: 6px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-  </style>
+  <title>Ofertas</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <nav>
@@ -70,23 +14,18 @@
   <a href="cadastro.html">Cadastro</a>
 </nav>
 
-<header>
-  <h1>🔥 Ofertas Especiais</h1>
-</header>
+<h2>🔥 Ofertas Especiais</h2>
 
-<main>
+<div class="produto">
+  <span>Fone Bluetooth TWS - R$69</span>
+  <button onclick="adicionarAoCarrinho('Fone Bluetooth TWS', 69)">+</button>
+</div>
 
-  <div class="produto">
-    <span>Fone Bluetooth TWS - R$69</span>
-    <button class="add">+</button>
-  </div>
+<div class="produto">
+  <span>Capinha iPhone 15 - R$30</span>
+  <button onclick="adicionarAoCarrinho('Capinha iPhone 15', 30)">+</button>
+</div>
 
-  <div class="produto">
-    <span>Capinha iPhone 15 - R$30</span>
-    <button class="add">+</button>
-  </div>
-
-</main>
-
+<script src="app.js"></script>
 </body>
 </html>
