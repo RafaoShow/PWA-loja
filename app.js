@@ -1,5 +1,6 @@
 let carrinho = [];
 let total = 0;
+let produtosGlobais = [];
 
 function adicionarAoCarrinho(nome, preco) {
   carrinho.push({ nome, preco });
@@ -11,13 +12,11 @@ function atualizarCarrinho() {
   const lista = document.getElementById("carrinho");
   const totalElemento = document.getElementById("total");
 
-  if (!lista) return;
-
   lista.innerHTML = "";
 
-  carrinho.forEach(produto => {
+  carrinho.forEach(item => {
     const li = document.createElement("li");
-    li.textContent = `${produto.nome} - R$ ${produto.preco}`;
+    li.textContent = `${item.nome} - R$ ${item.preco}`;
     lista.appendChild(li);
   });
 
@@ -30,19 +29,35 @@ function esvaziarCarrinho() {
   atualizarCarrinho();
 }
 
-if (document.getElementById("lista-produtos")) {
-  fetch("produtos.json")
-    .then(res => res.json())
-    .then(produtos => {
-      const container = document.getElementById("lista-produtos");
-      produtos.forEach(prod => {
-        const div = document.createElement("div");
-        div.classList.add("produto");
-        div.innerHTML = `
-          <span>${prod.nome} - R$ ${prod.preco}</span>
-          <button onclick="adicionarAoCarrinho('${prod.nome}', ${prod.preco})">+</button>
-        `;
-        container.appendChild(div);
-      });
+function filtrarProdutos() {
+  const termo = document.getElementById("pesquisa").value.toLowerCase();
+  const container = document.getElementById("lista-produtos");
+  container.innerHTML = "";
+
+  produtosGlobais
+    .filter(prod => prod.nome.toLowerCase().includes(termo))
+    .forEach(prod => {
+      criarProduto(prod);
     });
 }
+
+function criarProduto(prod) {
+  const container = document.getElementById("lista-produtos");
+
+  const div = document.createElement("div");
+  div.classList.add("produto");
+
+  div.innerHTML = `
+    <span>${prod.nome} - R$ ${prod.preco}</span>
+    <button onclick="adicionarAoCarrinho('${prod.nome}', ${prod.preco})">+</button>
+  `;
+
+  container.appendChild(div);
+}
+
+fetch("produtos.json")
+  .then(res => res.json())
+  .then(produtos => {
+    produtosGlobais = produtos;
+    produtos.forEach(prod => criarProduto(prod));
+  });
