@@ -8,21 +8,44 @@
 </head>
 <body>
 
-<nav>
-  <a href="index.html">Início</a>
-  <a href="produtos.html">Produtos</a>
-  <a href="ofertas.html">Ofertas</a>
-  <a href="cadastro.html">Cadastro</a>
-</nav>
-
-<header>
-  <h1>Costa Azul Lifestyle</h1>
-  <p>Sua loja completa no bairro Costa Azul</p>
+<header class="topo">
+  <div class="logo">Costa Azul Lifestyle</div>
+  <a href="cadastro.html" class="cadastro-btn">Cadastro</a>
 </header>
 
-<section class="banner">
-  <h2>🔥 Promoção da Semana</h2>
-  <p>Fones Bluetooth com até 30% OFF</p>
+<section class="busca-container">
+  <input type="text" id="pesquisa" placeholder="Buscar produtos..." onkeyup="filtrarProdutos()">
+</section>
+
+<main class="container">
+
+  <section class="produtos-area">
+    <h2>Produtos</h2>
+    <div id="lista-produtos"></div>
+  </section>
+
+  <section class="ofertas-area">
+    <h2>🔥 Ofertas</h2>
+
+    <div class="produto">
+      <span>Fone Bluetooth TWS - R$69</span>
+      <button onclick="adicionarAoCarrinho('Fone Bluetooth TWS',69)">+</button>
+    </div>
+
+    <div class="produto">
+      <span>Capinha iPhone 15 - R$30</span>
+      <button onclick="adicionarAoCarrinho('Capinha iPhone 15',30)">+</button>
+    </div>
+
+  </section>
+
+</main>
+
+<section class="carrinho">
+  <h2>Carrinho</h2>
+  <ul id="carrinho"></ul>
+  <p>Total: R$ <span id="total">0</span></p>
+  <button onclick="esvaziarCarrinho()">Esvaziar Carrinho</button>
 </section>
 
 <script src="app.js"></script>
