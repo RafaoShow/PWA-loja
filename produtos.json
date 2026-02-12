@@ -1,12 +1,22 @@
 [
-  { "nome": "Película iPhone 15 Pro Max", "preco": 40 },
-  { "nome": "Capinha iPhone 15 Pro Max", "preco": 45 },
-  { "nome": "Película Galaxy S24 Ultra", "preco": 35 },
-  { "nome": "Capinha Galaxy S24 Ultra", "preco": 40 },
-  { "nome": "Película Moto G84", "preco": 25 },
-  { "nome": "Capinha Moto G84", "preco": 30 },
-  { "nome": "Película Redmi Note 13", "preco": 25 },
-  { "nome": "Capinha Redmi Note 13", "preco": 30 },
-  { "nome": "Carregador Turbo 33W", "preco": 60 },
-  { "nome": "Fone Bluetooth Premium", "preco": 120 }
+  {
+    "nome": "Película iPhone 15 Pro Max",
+    "preco": 40,
+    "imagem": "https://via.placeholder.com/200"
+  },
+  {
+    "nome": "Capinha Galaxy S24 Ultra",
+    "preco": 45,
+    "imagem": "https://via.placeholder.com/200"
+  },
+  {
+    "nome": "Carregador Turbo 33W",
+    "preco": 60,
+    "imagem": "https://via.placeholder.com/200"
+  },
+  {
+    "nome": "Fone Bluetooth Premium",
+    "preco": 120,
+    "imagem": "https://via.placeholder.com/200"
+  }
 ]
