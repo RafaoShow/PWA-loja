@@ -29,6 +29,23 @@ function esvaziarCarrinho() {
   atualizarCarrinho();
 }
 
+function finalizarPedido() {
+  if (carrinho.length === 0) {
+    alert("Carrinho vazio!");
+    return;
+  }
+
+  let mensagem = "Olá! Gostaria de fazer um pedido:%0A";
+
+  carrinho.forEach(item => {
+    mensagem += `- ${item.nome} R$${item.preco}%0A`;
+  });
+
+  mensagem += `%0ATotal: R$${total}`;
+
+  window.open(`https://wa.me/5599999999999?text=${mensagem}`);
+}
+
 function filtrarProdutos() {
   const termo = document.getElementById("pesquisa").value.toLowerCase();
   const container = document.getElementById("lista-produtos");
@@ -36,9 +53,7 @@ function filtrarProdutos() {
 
   produtosGlobais
     .filter(prod => prod.nome.toLowerCase().includes(termo))
-    .forEach(prod => {
-      criarProduto(prod);
-    });
+    .forEach(prod => criarProduto(prod));
 }
 
 function criarProduto(prod) {
@@ -48,7 +63,9 @@ function criarProduto(prod) {
   div.classList.add("produto");
 
   div.innerHTML = `
-    <span>${prod.nome} - R$ ${prod.preco}</span>
+    <img src="${prod.imagem}">
+    <p>${prod.nome}</p>
+    <strong>R$ ${prod.preco}</strong>
     <button onclick="adicionarAoCarrinho('${prod.nome}', ${prod.preco})">+</button>
   `;
 
