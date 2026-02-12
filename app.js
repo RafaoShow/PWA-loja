@@ -78,3 +78,21 @@ fetch("produtos.json")
     produtosGlobais = produtos;
     produtos.forEach(prod => criarProduto(prod));
   });
+// Salvar carrinho no navegador
+function salvarCarrinho() {
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  localStorage.setItem("total", total);
+}
+
+// Carregar carrinho ao abrir página
+function carregarCarrinho() {
+  const carrinhoSalvo = localStorage.getItem("carrinho");
+  const totalSalvo = localStorage.getItem("total");
+
+  if (carrinhoSalvo) {
+    carrinho = JSON.parse(carrinhoSalvo);
+    total = parseFloat(totalSalvo);
+    atualizarCarrinho();
+  }
+}
+
