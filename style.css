@@ -10,67 +10,102 @@ body {
   align-items: center;
   background: #111;
   color: white;
-  padding: 20px;
+  padding: 15px 30px;
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
 }
 
-.cadastro-btn {
-  background: #1f7a3f;
-  padding: 8px 15px;
+.topo input {
+  width: 40%;
+  padding: 8px;
+  border-radius: 20px;
+  border: none;
+}
+
+.menu a {
   color: white;
   text-decoration: none;
+  background: #1f7a3f;
+  padding: 6px 12px;
   border-radius: 5px;
 }
 
-.busca-container {
+.banner {
+  background: #1f7a3f;
+  color: white;
   text-align: center;
-  margin: 20px;
-}
-
-#pesquisa {
-  width: 60%;
   padding: 10px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
+  font-weight: bold;
 }
 
 .container {
   display: flex;
-  justify-content: center;
   gap: 40px;
-  padding: 20px;
+  padding: 30px;
 }
 
-.produtos-area, .ofertas-area {
-  width: 40%;
+.produtos-area {
+  flex: 2;
+}
+
+.ofertas-area {
+  flex: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
 }
 
 .produto {
   background: white;
   padding: 10px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  border-radius: 6px;
+  border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
-button {
+.produto img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.produto button {
+  margin-top: 8px;
   background: #1f7a3f;
   color: white;
   border: none;
-  padding: 6px 10px;
-  border-radius: 4px;
+  padding: 6px;
+  border-radius: 5px;
   cursor: pointer;
+}
+
+.oferta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .carrinho {
   background: white;
   margin: 20px;
   padding: 20px;
-  border-radius: 6px;
+  border-radius: 8px;
+}
+
+.carrinho button {
+  margin-right: 10px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.limpar {
+  background: red;
+  color: white;
 }
