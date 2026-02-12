@@ -6,6 +6,7 @@ function adicionarAoCarrinho(nome, preco) {
   carrinho.push({ nome, preco });
   total += preco;
   atualizarCarrinho();
+  salvarCarrinho();
 }
 
 function atualizarCarrinho() {
@@ -27,6 +28,8 @@ function esvaziarCarrinho() {
   carrinho = [];
   total = 0;
   atualizarCarrinho();
+  salvarCarrinho();
+
 }
 
 function finalizarPedido() {
@@ -93,6 +96,7 @@ function carregarCarrinho() {
     carrinho = JSON.parse(carrinhoSalvo);
     total = parseFloat(totalSalvo);
     atualizarCarrinho();
+    carregarCarrinho();
   }
 }
 
