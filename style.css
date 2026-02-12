@@ -1,43 +1,62 @@
 body {
-  font-family: Arial;
   margin: 0;
-  padding: 20px;
-  background: #f4f4f4;
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
 }
 
-nav {
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: #111;
-  padding: 10px;
-  text-align: center;
-}
-
-nav a {
   color: white;
-  margin: 10px;
-  text-decoration: none;
-}
-
-header {
-  background: #1f7a3f;
-  color: white;
-  padding: 30px;
-  text-align: center;
-}
-
-.banner {
-  background: #ffe600;
   padding: 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.cadastro-btn {
+  background: #1f7a3f;
+  padding: 8px 15px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.busca-container {
   text-align: center;
-  margin-top: 20px;
+  margin: 20px;
+}
+
+#pesquisa {
+  width: 60%;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+}
+
+.produtos-area, .ofertas-area {
+  width: 40%;
 }
 
 .produto {
   background: white;
   padding: 10px;
-  margin: 10px 0;
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 button {
@@ -49,9 +68,9 @@ button {
   cursor: pointer;
 }
 
-input, select {
-  padding: 8px;
-  margin: 5px 0;
-  width: 100%;
-  max-width: 300px;
+.carrinho {
+  background: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 6px;
 }
