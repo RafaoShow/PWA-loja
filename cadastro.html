@@ -7,31 +7,27 @@
 </head>
 <body>
 
-<nav>
-  <a href="index.html">Início</a>
-  <a href="produtos.html">Produtos</a>
-  <a href="ofertas.html">Ofertas</a>
-  <a href="cadastro.html">Cadastro</a>
-</nav>
+<header class="topo">
+  <div class="logo">Cadastro</div>
+</header>
 
-<h2>Cadastro</h2>
+<section style="padding:40px; text-align:center;">
+  <form>
+    <input type="text" placeholder="Nome" required><br><br>
+    <input type="tel" placeholder="Número de celular" required><br><br>
+    <input type="text" placeholder="Endereço" required><br><br>
+    <input type="number" placeholder="Idade" required><br><br>
 
-<form>
-  <input type="text" placeholder="Nome" required><br>
-  <input type="tel" placeholder="Número de celular" required><br>
-  <input type="text" placeholder="Endereço" required><br>
-  <input type="number" placeholder="Idade" required><br>
-  
-  <select required>
-    <option value="">Gênero</option>
-    <option>Masculino</option>
-    <option>Feminino</option>
-    <option>Outro</option>
-  </select><br><br>
+    <select required>
+      <option value="">Gênero</option>
+      <option>Masculino</option>
+      <option>Feminino</option>
+      <option>Outro</option>
+    </select><br><br>
 
-  <button type="submit">Cadastrar</button>
-</form>
+    <button type="submit">Cadastrar</button>
+  </form>
+</section>
 
-<script src="app.js"></script>
 </body>
 </html>
